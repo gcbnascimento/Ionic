@@ -1,0 +1,29 @@
+<ion-header>
+  <ion-toolbar color="primary">
+    <ion-buttons slot="start">
+      <ion-button size="small" shape="round" color="medium"  (click)="voltar()">
+        <ion-icon class="branco" name="arrow-back"></ion-icon>
+      </ion-button>
+  </ion-buttons>
+    <ion-title>
+        <ion-text color="light">
+          <ion-text color="light" class="fw400">Agendar Reposição</ion-text>
+        </ion-text>
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+<h3 align="center">Selecione o dia da reposição</h3>
+<ion-calendar [(ngModel)]="datah"
+[format]="'DD-MM-YYYY'"
+[options]="optionsSemana"
+>
+</ion-calendar>
+<span>
+<ion-button expand="block" align="bottom" (click)="hora(datah)" [disabled]="!datah || !datah.length ">
+  <label>Avançar <ion-icon name="chevron-forward-outline"></ion-icon></label> 
+   
+ </ion-button>
+</span>
+</ion-content>

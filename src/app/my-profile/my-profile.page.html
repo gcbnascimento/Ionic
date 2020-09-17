@@ -1,0 +1,47 @@
+<ion-header>
+	<ion-toolbar>
+		<ion-buttons slot="start">
+			<ion-back-button icon="ios-arrow-back"></ion-back-button>
+		</ion-buttons>
+		<ion-title>{{'Perfil' | translate}}</ion-title>
+	</ion-toolbar>
+</ion-header>
+
+<ion-content> 
+	<div class="img_container ">
+		<div class="profile_img_box">
+			<div class="profile_img center_img">
+				<img src="assets/images/1.png" class="crop_img">
+			</div>
+			<ion-icon class="zmdi zmdi-camera"></ion-icon>
+		</div>
+	</div>
+	<div class="form">
+		<ion-list lines="none">
+			<ion-item lines="none">
+				<ion-icon class="zmdi zmdi-account ion-text-start" slot="start"></ion-icon>
+				<ion-label position="stacked">{{'Nome Completo' | translate}}</ion-label>
+				<ion-input type="name" value="Cristian Henrique dos Santos"></ion-input>
+			</ion-item>
+			<ion-item lines="none">
+				<ion-icon class="zmdi zmdi-email  ion-text-start" slot="start"></ion-icon>
+				<ion-label position="stacked">{{'E-mail' | translate}}</ion-label>
+				<ion-input type="email" value="cristian@mail.com"></ion-input>
+			</ion-item>
+			<ion-item lines="none">
+				<ion-icon class="zmdi zmdi-phone ion-text-start" slot="start"></ion-icon>
+				<ion-label position="stacked">{{'Número para contato' | translate}}</ion-label>
+				<ion-input type="text" value="+55 (16)99755-4476"></ion-input>
+			</ion-item>
+			<ion-item lines="none">
+				<ion-icon class="zmdi zmdi-assignment-account ion-text-start" slot="start"></ion-icon>
+				<ion-label position="stacked">{{'Módulo' | translate}}</ion-label>
+				<ion-input type="text" value="Profissional Digital"></ion-input>
+			</ion-item>
+
+		</ion-list>
+	</div>
+</ion-content>
+<ion-footer no-border> 
+		<ion-button size="large" class="btn">{{'Atualizar Perfil' | translate}}</ion-button>
+</ion-footer>

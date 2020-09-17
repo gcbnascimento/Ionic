@@ -1,0 +1,42 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button icon="ios-arrow-back"></ion-back-button>
+    </ion-buttons>
+    <ion-title>Cursos</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content padding>
+
+  <ion-refresher slot="fixed" (ionRefresh)="doRefresh($event)">
+    <ion-refresher-content pullingIcon="arrow-dropdown" refreshingSpinner="crescent" refreshingText="Carregando...">
+    </ion-refresher-content>
+  </ion-refresher>
+
+
+  <ion-list>
+
+    <ion-card *ngFor="let dado of lista">
+      <ion-card-header (click)="notas(dado.id_curso, dado.descricao)">
+        <img class="img-curso" src={{dado.imgcurso}}>
+        <ion-card-subtitle>{{dado.descricao}}</ion-card-subtitle>
+
+        <ion-card-title *ngIf="dado.status =='C'">
+
+          <ion-badge color="success">Concluído</ion-badge>
+
+
+        </ion-card-title>
+        <ion-card-title *ngIf="dado.status =='E'">
+          <ion-badge color="warning">Em espera</ion-badge>
+        </ion-card-title>
+        <ion-card-title *ngIf="dado.status =='A'">
+
+          <ion-badge color="end">Em Andamento</ion-badge>
+
+        </ion-card-title>
+      </ion-card-header>
+    </ion-card>
+  </ion-list>
+</ion-content>

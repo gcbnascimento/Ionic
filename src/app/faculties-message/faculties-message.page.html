@@ -1,0 +1,75 @@
+<ion-header>
+	<ion-toolbar>
+		<ion-buttons slot="start">
+			<ion-back-button icon="ios-arrow-back"></ion-back-button>
+		</ion-buttons>
+		<ion-title>
+			<div class="profile_details d-flex">
+				<h2>Emili Williamson</h2>
+				<div class="img_box center_img end">
+					<img src="assets/images/4.png" class="crop_img">
+				</div>
+			</div>
+		</ion-title>
+	</ion-toolbar>
+</ion-header>
+
+<ion-content class="bg_color" padding id="content">
+	<ion-button (click)="ScrollToBottom()">
+		Scroll To Bottom
+	  </ion-button>
+
+	<!--Atualiza a chat-->
+	<ion-refresher slot="fixed" (ionRefresh)="doRefresh($event)">
+        <ion-refresher-content
+          pullingIcon="arrow-dropdown"
+          
+          refreshingSpinner="crescent"
+          refreshingText="Carregando...">
+        </ion-refresher-content>
+	  </ion-refresher>
+	  
+
+
+	<div class="chat_container d-flex" *ngFor="let dado of lista">
+		<div class="chat_box d-flex send" *ngIf="dado.enviado_por == 'A'">
+			<div class="chat d-flex">
+				<div class="text_box">
+					<p class="d-flex"><span>{{dado.data}}</span> <strong class="end">{{'Eu' | translate}}</strong></p>
+					<h2>{{dado.mensagem}}</h2>
+				</div>
+				<div class="img_box center_img">
+					<img src="assets/images/profile_pick.png" class="crop_img">
+				</div>
+			</div>
+		</div>
+		<div class="chat_box d-flex received" *ngIf="dado.enviado_por == 'F'">
+			<div class="chat  d-flex">
+				<div class="img_box center_img">
+					<img src="assets/images/4.png" class="crop_img">
+				</div>
+				<div class="text_box">
+					<p class="d-flex"><strong>Nome funcionario </strong> <span class="end">{{dado.data}}</span></p>
+					<h2>{{dado.mensagem}}</h2>
+				</div>
+			</div>
+		</div>		
+	</div>
+</ion-content>
+
+<ion-footer no-border>
+	<div class="form">		
+		<ion-list lines="none d-flex">
+			<ion-item lines="none">
+				
+				<ion-input type="text" placeholder="Escrever mensagem..." [(ngModel)]="mensagem" (keyup.enter)="enviarmsg(mensagem)"></ion-input>
+				
+			</ion-item>
+			<div class="send_btn end">
+				
+				<ion-icon class="zmdi zmdi-mail-send" (click)="enviarmsg(mensagem)"></ion-icon>
+				
+			</div>
+		</ion-list>	
+	</div>
+</ion-footer>

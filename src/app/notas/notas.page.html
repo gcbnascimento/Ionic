@@ -1,0 +1,53 @@
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+  </head>
+  <ion-header>
+    <ion-toolbar color="primary">
+      <ion-buttons slot="start">
+        <ion-button size="small" shape="round" color="medium" (click)="voltar()">
+        <ion-icon class="branco" name="arrow-back"></ion-icon>
+        </ion-button>
+    </ion-buttons>
+      <ion-title>
+          <ion-text color="light">
+            <ion-text color="light" class="fw400">Notas</ion-text>
+          </ion-text>
+      </ion-title>
+    </ion-toolbar>
+    <ion-toolbar color="primary">
+
+      
+        <ion-label color="light" align="center"> <h2>  {{descricao}}</h2></ion-label> 
+      
+     
+    </ion-toolbar>
+  </ion-header>
+  
+  
+  <ion-content padding>
+  
+    <ion-refresher slot="fixed" (ionRefresh)="doRefresh($event)">
+        <ion-refresher-content
+          pullingIcon="arrow-dropdown"
+          
+          refreshingSpinner="crescent"
+          refreshingText="Carregando...">
+        </ion-refresher-content>
+      </ion-refresher>
+  
+  
+  <ion-list>
+    <!-- Sliding item with text options on both sides -->
+    <ion-item-sliding *ngFor="let dado of lista">
+     
+     <ion-item>
+        <ion-label><h2>Aula {{dado.aula}}</h2>  <h2><small> <span> Data: {{dado.data2}}</span> </small></h2></ion-label><ion-badge color="success">{{dado.nota}}%</ion-badge>
+      </ion-item>
+      
+    </ion-item-sliding>
+  
+    
+  </ion-list>
+  
+  
+  </ion-content>

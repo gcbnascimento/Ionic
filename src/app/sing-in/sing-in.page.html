@@ -1,0 +1,33 @@
+<ion-header class="bg_transparent">
+	<ion-toolbar>
+		<ion-title></ion-title>
+	</ion-toolbar>
+</ion-header>
+
+<ion-content>
+	<div class="banner">
+		<div class="logo">
+			<img src="assets/images/on-byte.jpg">
+		</div>
+	</div>
+
+	<div class="form">
+
+		<ion-button size="large" class="btn fb_btn" (click)="login()">{{'Entrar com o Facebook' | translate}}</ion-button>
+		<h2 class=ion-text-center>{{'Preencha os campos abaixo' | translate}}</h2>
+		<ion-list lines="none">
+			<ion-item lines="none">
+				<ion-input placeholder="{{'Matrícula' | translate}}" type="number" [(ngModel)]="matricula"></ion-input>
+			</ion-item>
+
+			<ion-item lines="none">
+				<ion-input placeholder="{{'Senha' | translate}}" type="password" [(ngModel)]="senha"></ion-input>
+
+				<h3 slot="end" (click)="goToForgotPassword()">{{'Esqueci?' | translate}}</h3>
+			</ion-item>
+
+			<ion-button size="large" class="btn" (click)="login()">{{'Entrar' | translate}}</ion-button>
+			<h4 class=ion-text-center>{{'Não possui Login?' | translate}} <span (click)="goToSignUP()">{{'Solicitar Login' | translate}}</span></h4>
+		</ion-list>
+	</div>
+</ion-content>
